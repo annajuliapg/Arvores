@@ -6,7 +6,7 @@ git init
 
 **Baixar o projeto**
 
-git clone https://github.com/annajuliapg/Paint.git
+git clone https://github.com/annajuliapg/Arvores.git
 
 **Subir arquivos**
 
