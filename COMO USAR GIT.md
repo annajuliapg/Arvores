@@ -1,5 +1,9 @@
 **--------------------COMO USAR GIT--------------------**
 
+**Inicar pasta como repositório**
+
+git init
+
 **Baixar o projeto**
 
 git clone https://github.com/annajuliapg/Paint.git
