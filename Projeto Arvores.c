@@ -37,47 +37,47 @@ int main ()
     no *raiz = NULL;
     no *inicio;
 
-    int h; /* Flag para verificar se a altura da √°rvore foi alterada */
+    int h; /* Flag para verificar se a altura da ·rvore foi alterada */
 
 
     do
     {
         system("cls");
         printf("\n\n\t-----------");
-        printf("\n\t| √Årvores |");
+        printf("\n\t| ¡rvores |");
         printf("\n\t-----------");
 
         printf("\n\n\tMENU\n\n");
 
-        printf("\n\t1.Inser√ß√£o Balanceada");
-        printf("\n\n\t2.Remo√ß√£o Balanceada");
+        printf("\n\t1.InserÁ„o Balanceada");
+        printf("\n\n\t2.RemoÁ„o Balanceada");
         printf("\n\n\t3.Percursos em profundidade (em ordem, preordem e posordem)");
         printf("\n\n\t4.Percurso em largura");
-        printf("\n\n\t5.Contagens (n√∫mero total de n√≥s, n√≥s folha, n√≥s com um filho, en√≥s com dois filhos)");
-        printf("\n\n\t6.Altura da √°rvore");
-        printf("\n\n\t7.M√©dia dos valores armazenados na √°rvore");
+        printf("\n\n\t5.Contagens (n˙mero total de nÛs, nÛs folha, nÛs com um filho, enÛs com dois filhos)");
+        printf("\n\n\t6.Altura da ·rvore");
+        printf("\n\n\t7.MÈdia dos valores armazenados na ·rvore");
         printf("\n\n\t8.Menor valor armazenado");
         printf("\n\n\t9.Maior valor armazenado");
-        printf("\n\n\t10.Verifica√ß√£o se as duas √°rvores s√£o iguais (mesma estrutura e mesmos valores nas mesmas posi√ß√µes)");
-        printf("\n\n\t11.Verifica√ß√£o se duas √°rvores s√£o semelhantes (mesma estrutura, independentemente dos valores dos n√≥s)");
-        printf("\n\n\t12.Verifica√ß√£o se duas √°rvores s√£o sim√©tricas (uma √© a imagem da outra refletida em um espelho)");
-        printf("\n\n\t13.Verifica√ß√£o se um elemento de valor x est√° em alguma ou nas duas √°rvores");
-        printf("\n\n\t14.Verifica√ß√£o de quais valores est√£o em ambas as √°rvores (equivalente √† intersec√ß√£o de conjuntos)");
-        printf("\n\n\t15.Verifica√ß√£o de todos os elementos que est√£o em pelo menos uma das √°rvores (equivalente √† uni√£o de conjuntos)");
+        printf("\n\n\t10.VerificaÁ„o se as duas ·rvores s„o iguais (mesma estrutura e mesmos valores nas mesmas posiÁıes)");
+        printf("\n\n\t11.VerificaÁ„o se duas ·rvores s„o semelhantes (mesma estrutura, independentemente dos valores dos nÛs)");
+        printf("\n\n\t12.VerificaÁ„o se duas ·rvores s„o simÈtricas (uma È a imagem da outra refletida em um espelho)");
+        printf("\n\n\t13.VerificaÁ„o se um elemento de valor x est· em alguma ou nas duas ·rvores");
+        printf("\n\n\t14.VerificaÁ„o de quais valores est„o em ambas as ·rvores (equivalente ‡ intersecÁ„o de conjuntos)");
+        printf("\n\n\t15.VerificaÁ„o de todos os elementos que est„o em pelo menos uma das ·rvores (equivalente ‡ uni„o de conjuntos)");
         printf("\n\n\t0.Sair\n");
 
-        printf("\n\n\tDigite a opc√£o: ");
+        printf("\n\n\tDigite a opc„o: ");
         scanf("%d",&menu);
 
         switch (menu)
         {
             case 1:
             system("cls");
-            printf("\n\tDigite o n√∫mero que deseja inserir: ");
+            printf("\n\tDigite o n˙mero que deseja inserir: ");
             scanf("%d",&num);
             h=0;
             insere(&raiz, num,&h);
-            printf("\n\n\tN√∫mero inserido!");
+            printf("\n\n\tN˙mero inserido!");
             printf("\n\n\n\t");
             system("PAUSE");
             break;
@@ -86,14 +86,14 @@ int main ()
             system("cls");
             if (raiz)
             {
-                printf("\n\tDigite o n√∫mero que deseja remover: ");
+                printf("\n\tDigite o n˙mero que deseja remover: ");
                 scanf("%d",&num);
                 removeBal(&raiz, num);
-                printf("\n\n\tN√∫mero removido!");
+                printf("\n\n\tN˙mero removido!");
             }
             else
             {
-                printf("\n\t√Årvore vazia!");
+                printf("\n\t¡rvore vazia!");
             }
 
             printf("\n\n\n\t");
@@ -113,7 +113,7 @@ int main ()
             }
             else
             {
-                printf("\n\t√Årvore vazia!");
+                printf("\n\t¡rvore vazia!");
             }
 
             printf("\n\n\n\t");
@@ -129,7 +129,7 @@ int main ()
             }
             else
             {
-                printf("\n\t√Årvore vazia!");
+                printf("\n\t¡rvore vazia!");
             }
 
             printf("\n\n\n\t");
@@ -196,7 +196,7 @@ int main ()
             exit(1);
 
             default:
-            printf("\n\n\tN√∫mero Inv√°lido");
+            printf("\n\n\tN˙mero Inv·lido");
             printf("\n\n\n\t");
             system("PAUSE");
             break;
