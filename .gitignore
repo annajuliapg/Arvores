@@ -1,10 +1,7 @@
 # Prerequisites
 *.d
 
-*/*.exe
-
 # Object files
-*/*.o
 *.o
 *.ko
 *.obj
