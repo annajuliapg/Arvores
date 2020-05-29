@@ -16,7 +16,15 @@ struct no
 
 typedef struct no no;
 
-void insere(no **, int, int *);
+void insere(no **raiz, int n, int *h);
+
+int mydel(no **x);
+void removeBal(no **raiz, int n);
+
+void emOrdem (no **raiz);
+void preOrdem (no **raiz);
+void posOrdem (no **raiz);
+
 
 int main ()
 {
@@ -27,7 +35,7 @@ int main ()
     no *raiz = NULL;
     no *inicio;
 
-    int h; /* Flag para verificar se a altura da árvore fo alterada */
+    int h; /* Flag para verificar se a altura da árvore foi alterada */
 
 
     do
@@ -63,7 +71,7 @@ int main ()
         {
             case 1:
             system("cls");
-            printf("\n\tDigite o némero que deseja inserir: ");
+            printf("\n\tDigite o número que deseja inserir: ");
             scanf("%d",&num);
             h=0;
             insere(&raiz, num,&h);
@@ -76,7 +84,7 @@ int main ()
             system("cls");
             printf("\n\tDigite o número que deseja remover: ");
             scanf("%d",&num);
-            remove(&raiz);
+            removeBal(&raiz, num);
             printf("\n\n\tNúmero removido!");
             printf("\n\n\n\t");
             system("PAUSE");
@@ -84,7 +92,14 @@ int main ()
 
             case 3:
             system("cls");
-
+            printf("\n\n\tEm Ordem: ");
+            emOrdem(&raiz);
+            printf("\n\n\tPre Ordem: ");
+            preOrdem(&raiz);
+            printf("\n\n\tPos Ordem: ");
+            posOrdem(&raiz);
+            printf("\n\n\n\t");
+            system("PAUSE");
             break;
 
             case 4:
@@ -280,40 +295,101 @@ void insere(no **raiz, int n, int *h)
             }
 
     }
-    int mydel(no **x)
-   {
-        if ((*x)->dir != NULL) return(mydel (&(*x)->dir));
-        else {
-             int n=(*x)->chave;
-             (*x)=(*x)->esq;
-             return(n);
-             }
-   }
-      
-    void remove(no **raiz, int n)
+
+}
+
+void emOrdem (no **raiz)
+{
+    if((*raiz) != NULL)
+	{
+        emOrdem(&(*raiz)->esq);
+        printf("%d ", (*raiz)->chave);
+        emOrdem(&(*raiz)->dir);
+    }
+}
+
+void preOrdem (no **raiz)
+{
+    if((*raiz) != NULL)
+	{
+        printf("%d ", (*raiz)->chave);
+        emOrdem(&(*raiz)->esq);
+        emOrdem(&(*raiz)->dir);
+    }
+}
+
+void posOrdem (no **raiz)
+{
+    if((*raiz) != NULL)
+	{
+        emOrdem(&(*raiz)->esq);
+        emOrdem(&(*raiz)->dir);
+        printf("%d ", (*raiz)->chave);
+    }
+}
+
+
+int mydel(no **x)
+{
+    if ((*x)->dir != NULL)
     {
-        if (*raiz != NULL)
+        return(mydel (&(*x)->dir));
+    }
+    else
+    {
+        int n=(*x)->chave;
+        (*x)=(*x)->esq;
+        return(n);
+    }
+}
+
+ void removeBal(no **raiz, int n)
+{
+    if (*raiz != NULL)
+    {
+        if ((*raiz)->chave == n)
         {
-            if ((*raiz) -> chave == n)
+            if ((*raiz)->esq==NULL)
             {
-                if((*raiz) -> esq == NULL)
-                {
-                    (*raiz) = (*raiz) -> dir;
-                }
-                else if ((*raiz) -> dir == NULL)
-                {
-                    (*raiz) = (*raiz) -> esq;
-                }
+                (*raiz)=(*raiz)->dir;
             }
             else
             {
-                (*raiz) -> chave = mydel(&((*raiz) -> esq));
+
+                if ((*raiz)->dir==NULL)
+                {
+                    (*raiz) = ((*raiz)->esq);
+                }
+                else
+                {
+                   (*raiz)->chave = mydel(&(*raiz)->esq);
+                }
             }
         }
-        else if (n < (*raiz) -> chave)
+        else
         {
-            remove(n, &(*raiz) -> esq);
-            else remove (n,&((*raiz) -> dir));
+            if (n > (*raiz)->chave)
+            {
+              removeBal(&(*raiz)->dir, n);
+            }
+            else
+            {
+                if (n < (*raiz)->chave)
+                {
+                    removeBal(&(*raiz)->esq, n);
+                }
+            }
+        }
     }
-
 }
+
+
+
+
+
+
+
+
+
+
+
