@@ -104,7 +104,11 @@ int main ()
 
             case 4:
             system("cls");
-
+            printf("Percurso em largura : ");
+            if (raiz) largura(raiz);
+            else printf(" Arvore vazia!");
+            printf("\n\n\n\t");
+            system("PAUSE");
             break;
 
             case 5:
@@ -381,6 +385,21 @@ int mydel(no **x)
             }
         }
     }
+	 
+	void largura (no *raiz)
+	    {
+	     no_fila *fila = NULL;
+	     no_fila * aux;
+
+	     enqueue (raiz, &fila);
+	     while (fila) {
+		   aux = dequeue(&fila);
+		   printf("%d ( %d )  ", aux ->registro->chave, aux->registro->bal);
+		   if (aux->registro->esq) enqueue (aux->registro->esq, &fila);
+		   if (aux->registro->dir) enqueue (aux->registro->dir, &fila);
+		   }
+	     printf("\n");
+	    }
 }
 
 
