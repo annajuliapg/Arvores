@@ -27,12 +27,15 @@ void posOrdem (no **raiz);
 
 void largura (no ** raiz);
 
+int totalNos (no *raiz, int quant);
+int totalFolhas (no *raiz, int quant);
+
 
 int main ()
 {
     setlocale(LC_ALL, "portuguese");
 
-    int menu, num;
+    int menu, num, quantidade = 0;
 
     no *raiz = NULL;
     no *inicio;
@@ -142,57 +145,14 @@ int main ()
 
             case 5:
             system("cls");
+            quantidade = 0;
+            printf("\n\tTotal de nós: %d", totalNos(raiz, quantidade));
 
-            break;
+            quantidade = 0;
+            printf("\n\n\tTotal de folhas: %d", totalFolhas(raiz, quantidade));
 
-            case 6:
-            system("cls");
-
-            break;
-
-            case 7:
-            system("cls");
-
-            break;
-
-            case 8:
-            system("cls");
-
-            break;
-
-            case 9:
-            system("cls");
-
-            break;
-
-            case 10:
-            system("cls");
-
-            break;
-
-            case 11:
-            system("cls");
-
-            break;
-
-            case 12:
-            system("cls");
-
-            break;
-
-            case 13:
-            system("cls");
-
-            break;
-
-            case 14:
-            system("cls");
-
-            break;
-
-            case 15:
-            system("cls");
-
+            printf("\n\n\n\t");
+            system("PAUSE");
             break;
 
             case 16:
@@ -512,6 +472,37 @@ void largura (no **raiz)
 
            if (aux->registro->dir) enqueue (&(aux->registro->dir), &fila);
     }
+}
+
+int totalNos (no *raiz, int quant)
+{
+    if(raiz)
+       quant++;
+
+    if (raiz->esq != NULL)
+        quant = totalNos(raiz->esq, quant);
+
+    if (raiz->dir != NULL)
+        quant = totalNos(raiz->dir, quant);
+
+    return quant;
+
+
+}
+
+int totalFolhas (no *raiz, int quant)
+{
+    if ((raiz->dir == NULL) && (raiz->esq == NULL))
+        quant++;
+
+    if (raiz->esq != NULL)
+        quant = totalFolhas(raiz->esq, quant);
+
+    if (raiz->dir != NULL)
+        quant = totalFolhas(raiz->dir, quant);
+
+    return quant;
+
 }
 
 
