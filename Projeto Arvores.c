@@ -64,6 +64,9 @@ int main ()
         printf("\n\n\t13.Verificação se um elemento de valor x está em alguma ou nas duas árvores");
         printf("\n\n\t14.Verificação de quais valores estão em ambas as árvores (equivalente à intersecção de conjuntos)");
         printf("\n\n\t15.Verificação de todos os elementos que estão em pelo menos uma das árvores (equivalente à união de conjuntos)");
+
+        printf("\n\n\t16.(ATALHO)Insere 3 números");
+
         printf("\n\n\t0.Sair\n");
 
         printf("\n\n\tDigite a opcão: ");
@@ -191,6 +194,30 @@ int main ()
             system("cls");
 
             break;
+
+            case 16:
+            system("cls");
+
+            printf("\n\tDigite o número que deseja inserir: ");
+            scanf("%d",&num);
+            h=0;
+            insere(&raiz, num, &h);
+
+            printf("\n\tDigite o número que deseja inserir: ");
+            scanf("%d",&num);
+            h=0;
+            insere(&raiz, num, &h);
+
+            printf("\n\tDigite o número que deseja inserir: ");
+            scanf("%d",&num);
+            h=0;
+            insere(&raiz, num, &h);
+
+            printf("\n\n\tNúmeros inseridos!");
+            printf("\n\n\n\t");
+            system("PAUSE");
+            break;
+
 
             case 0:
             exit(1);
@@ -482,7 +509,7 @@ void largura (no **raiz)
            printf("%d ", aux->registro->chave);
 
            if (aux->registro->esq) enqueue (&(aux->registro->esq), &fila);
-           else
+
            if (aux->registro->dir) enqueue (&(aux->registro->dir), &fila);
     }
 }
