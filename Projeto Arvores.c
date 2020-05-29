@@ -25,10 +25,12 @@ void emOrdem (no **raiz);
 void preOrdem (no **raiz);
 void posOrdem (no **raiz);
 
+void largura (no ** raiz);
+
 
 int main ()
 {
-    setlocale(LC_ALL,"portuguese");
+    setlocale(LC_ALL, "portuguese");
 
     int menu, num;
 
@@ -82,33 +84,57 @@ int main ()
 
             case 2:
             system("cls");
-            printf("\n\tDigite o número que deseja remover: ");
-            scanf("%d",&num);
-            removeBal(&raiz, num);
-            printf("\n\n\tNúmero removido!");
+            if (raiz)
+            {
+                printf("\n\tDigite o número que deseja remover: ");
+                scanf("%d",&num);
+                removeBal(&raiz, num);
+                printf("\n\n\tNúmero removido!");
+            }
+            else
+            {
+                printf("\n\tÁrvore vazia!");
+            }
+
             printf("\n\n\n\t");
             system("PAUSE");
             break;
 
             case 3:
             system("cls");
-            printf("\n\n\tEm Ordem: ");
-            emOrdem(&raiz);
-            printf("\n\n\tPre Ordem: ");
-            preOrdem(&raiz);
-            printf("\n\n\tPos Ordem: ");
-            posOrdem(&raiz);
+            if (raiz)
+            {
+                printf("\n\n\tEm Ordem: ");
+                emOrdem(&raiz);
+                printf("\n\n\tPre Ordem: ");
+                preOrdem(&raiz);
+                printf("\n\n\tPos Ordem: ");
+                posOrdem(&raiz);
+            }
+            else
+            {
+                printf("\n\tÁrvore vazia!");
+            }
+
             printf("\n\n\n\t");
             system("PAUSE");
             break;
 
             case 4:
             system("cls");
-            printf("Percurso em largura : ");
-            if (raiz) largura(raiz);
-            else printf(" Arvore vazia!");
+            if (raiz)
+            {
+                printf("\n\n\tPercuso em Largura: ");
+                largura(&raiz);
+            }
+            else
+            {
+                printf("\n\tÁrvore vazia!");
+            }
+
             printf("\n\n\n\t");
             system("PAUSE");
+
             break;
 
             case 5:
@@ -194,8 +220,8 @@ void insere(no **raiz, int n, int *h)
         (*raiz) -> chave = n;
         (*raiz) -> esq = (*raiz) -> dir = NULL;
         (*raiz) -> bal=C;
-     }
-     else
+    }
+    else
     {
        if (n < (*raiz)->chave)
        {
@@ -247,6 +273,7 @@ void insere(no **raiz, int n, int *h)
             }
         }
         else
+        {
             if (n > (*raiz)->chave)
             {
                 insere (&(*raiz)->dir,n,h);
@@ -297,41 +324,9 @@ void insere(no **raiz, int n, int *h)
                     }
                 }
             }
-
-    }
-
-}
-
-void emOrdem (no **raiz)
-{
-    if((*raiz) != NULL)
-	{
-        emOrdem(&(*raiz)->esq);
-        printf("%d ", (*raiz)->chave);
-        emOrdem(&(*raiz)->dir);
+        }
     }
 }
-
-void preOrdem (no **raiz)
-{
-    if((*raiz) != NULL)
-	{
-        printf("%d ", (*raiz)->chave);
-        emOrdem(&(*raiz)->esq);
-        emOrdem(&(*raiz)->dir);
-    }
-}
-
-void posOrdem (no **raiz)
-{
-    if((*raiz) != NULL)
-	{
-        emOrdem(&(*raiz)->esq);
-        emOrdem(&(*raiz)->dir);
-        printf("%d ", (*raiz)->chave);
-    }
-}
-
 
 int mydel(no **x)
 {
@@ -347,7 +342,7 @@ int mydel(no **x)
     }
 }
 
- void removeBal(no **raiz, int n)
+void removeBal(no **raiz, int n)
 {
     if (*raiz != NULL)
     {
@@ -385,23 +380,112 @@ int mydel(no **x)
             }
         }
     }
-	 
-	void largura (no *raiz)
-	    {
-	     no_fila *fila = NULL;
-	     no_fila * aux;
-
-	     enqueue (raiz, &fila);
-	     while (fila) {
-		   aux = dequeue(&fila);
-		   printf("%d ( %d )  ", aux ->registro->chave, aux->registro->bal);
-		   if (aux->registro->esq) enqueue (aux->registro->esq, &fila);
-		   if (aux->registro->dir) enqueue (aux->registro->dir, &fila);
-		   }
-	     printf("\n");
-	    }
 }
 
+void emOrdem (no **raiz)
+{
+    if((*raiz) != NULL)
+	{
+        emOrdem(&(*raiz)->esq);
+        printf("%d ", (*raiz)->chave);
+        emOrdem(&(*raiz)->dir);
+    }
+}
+
+void preOrdem (no **raiz)
+{
+    if((*raiz) != NULL)
+	{
+        printf("%d ", (*raiz)->chave);
+        emOrdem(&(*raiz)->esq);
+        emOrdem(&(*raiz)->dir);
+    }
+}
+
+void posOrdem (no **raiz)
+{
+    if((*raiz) != NULL)
+	{
+        emOrdem(&(*raiz)->esq);
+        emOrdem(&(*raiz)->dir);
+        printf("%d ", (*raiz)->chave);
+    }
+}
+
+
+// PARA FAZER O PERCURSO EM LARGURA
+
+typedef struct no_fila no_fila;
+
+struct no_fila
+{
+    struct no *registro;
+    struct no_fila *prox;
+};
+
+void enqueue(no **raiz, no_fila **fila)
+{
+    if (*fila==NULL)
+    {
+        *fila=(no_fila *) malloc(sizeof(no_fila));
+        (*fila)->registro = (*raiz);
+        (*fila)->prox = NULL;
+    }
+    else
+    {
+        no_fila *aux;
+        aux = *fila;
+
+        while ((aux)->prox != NULL)
+        {
+            (aux) = (aux)->prox;
+        }
+
+        aux->prox = (no_fila *) malloc(sizeof(no_fila));
+        aux = aux->prox;
+        aux->registro = (*raiz);
+        aux->prox = NULL;
+    }
+}
+
+no_fila *dequeue(no_fila **fila)
+{
+    if (*fila!=NULL)
+    {
+        no_fila *aux;
+        aux = *fila;
+
+        if (aux->prox==NULL)
+        {
+            *fila=NULL;
+            return(aux);
+        }
+        else
+        {
+            aux=*fila;
+            *fila=(*fila)->prox;
+            return(aux);
+        }
+    }
+}
+
+void largura (no **raiz)
+{
+     no_fila *fila = NULL;
+     no_fila *aux;
+
+    enqueue (&(*raiz), &fila);
+
+    while (fila)
+    {
+           aux = dequeue(&fila);
+           printf("%d ", aux->registro->chave);
+
+           if (aux->registro->esq) enqueue (&(aux->registro->esq), &fila);
+           else
+           if (aux->registro->dir) enqueue (&(aux->registro->dir), &fila);
+    }
+}
 
 
 
