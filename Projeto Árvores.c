@@ -27,54 +27,59 @@ int main ()
     no *raiz = NULL;
     no *inicio;
 
-    int h; /* Flag para verificar se a altura da árvore fo alterada */
+    int h; /* Flag para verificar se a altura da Ã¡rvore fo alterada */
 
 
     do
     {
         system("cls");
         printf("\n\n\t-----------");
-        printf("\n\t| Árvores |");
+        printf("\n\t| Ãrvores |");
         printf("\n\t-----------");
 
         printf("\n\n\tMENU\n\n");
 
-        printf("\n\t1.Inserção Balanceada");
-        printf("\n\n\t2.Remoção Balanceada");
+        printf("\n\t1.InserÃ§Ã£o Balanceada");
+        printf("\n\n\t2.RemoÃ§Ã£o Balanceada");
         printf("\n\n\t3.Percursos em profundidade (em ordem, preordem e posordem)");
         printf("\n\n\t4.Percurso em largura");
-        printf("\n\n\t5.Contagens (número total de nós, nós folha, nós com um filho, enós com dois filhos)");
-        printf("\n\n\t6.Altura da árvore");
-        printf("\n\n\t7.Média dos valores armazenados na árvore");
+        printf("\n\n\t5.Contagens (nÃºmero total de nÃ³s, nÃ³s folha, nÃ³s com um filho, enÃ³s com dois filhos)");
+        printf("\n\n\t6.Altura da Ã¡rvore");
+        printf("\n\n\t7.MÃ©dia dos valores armazenados na Ã¡rvore");
         printf("\n\n\t8.Menor valor armazenado");
         printf("\n\n\t9.Maior valor armazenado");
-        printf("\n\n\t10.Verificação se as duas árvores são iguais (mesma estrutura e mesmos valores nas mesmas posições)");
-        printf("\n\n\t11.Verificação se duas árvores são semelhantes (mesma estrutura, independentemente dos valores dos nós)");
-        printf("\n\n\t12.Verificação se duas árvores são simétricas (uma é a imagem da outra refletida em um espelho)");
-        printf("\n\n\t13.Verificação se um elemento de valor x está em alguma ou nas duas árvores");
-        printf("\n\n\t14.Verificação de quais valores estão em ambas as árvores (equivalente à intersecção de conjuntos)");
-        printf("\n\n\t15.Verificação de todos os elementos que estão em pelo menos uma das árvores (equivalente à união de conjuntos)");
+        printf("\n\n\t10.VerificaÃ§Ã£o se as duas Ã¡rvores sÃ£o iguais (mesma estrutura e mesmos valores nas mesmas posiÃ§Ãµes)");
+        printf("\n\n\t11.VerificaÃ§Ã£o se duas Ã¡rvores sÃ£o semelhantes (mesma estrutura, independentemente dos valores dos nÃ³s)");
+        printf("\n\n\t12.VerificaÃ§Ã£o se duas Ã¡rvores sÃ£o simÃ©tricas (uma Ã© a imagem da outra refletida em um espelho)");
+        printf("\n\n\t13.VerificaÃ§Ã£o se um elemento de valor x estÃ¡ em alguma ou nas duas Ã¡rvores");
+        printf("\n\n\t14.VerificaÃ§Ã£o de quais valores estÃ£o em ambas as Ã¡rvores (equivalente Ã  intersecÃ§Ã£o de conjuntos)");
+        printf("\n\n\t15.VerificaÃ§Ã£o de todos os elementos que estÃ£o em pelo menos uma das Ã¡rvores (equivalente Ã  uniÃ£o de conjuntos)");
         printf("\n\n\t0.Sair\n");
 
-        printf("\n\n\tDigite a opcão: ");
+        printf("\n\n\tDigite a opcÃ£o: ");
         scanf("%d",&menu);
 
         switch (menu)
         {
             case 1:
             system("cls");
-            printf("\n\tDigite o némero que deseja inserir: ");
+            printf("\n\tDigite o nÃ©mero que deseja inserir: ");
             scanf("%d",&num);
             h=0;
             insere(&raiz, num,&h);
-            printf("\n\n\tNúmero inserido!");
+            printf("\n\n\tNÃºmero inserido!");
             printf("\n\n\n\t");
             system("PAUSE");
             break;
 
             case 2:
             system("cls");
-
+            printf("\n\tDigite o nÃºmero que deseja remover: ");
+            scanf("%d",&num);
+            remove(&raiz);
+            printf("\n\n\tNÃºmero removido!");
+            printf("\n\n\n\t");
+            system("PAUSE");
             break;
 
             case 3:
@@ -146,7 +151,7 @@ int main ()
             exit(1);
 
             default:
-            printf("\n\n\tNúmero Inválido");
+            printf("\n\n\tNÃºmero InvÃ¡lido");
             printf("\n\n\n\t");
             system("PAUSE");
             break;
@@ -274,6 +279,41 @@ void insere(no **raiz, int n, int *h)
                 }
             }
 
+    }
+    int mydel(no **x)
+   {
+        if ((*x)->dir != NULL) return(mydel (&(*x)->dir));
+        else {
+             int n=(*x)->chave;
+             (*x)=(*x)->esq;
+             return(n);
+             }
+   }
+      
+    void remove(no **raiz, int n)
+    {
+        if (*raiz != NULL)
+        {
+            if ((*raiz) -> chave == n)
+            {
+                if((*raiz) -> esq == NULL)
+                {
+                    (*raiz) = (*raiz) -> dir;
+                }
+                else if ((*raiz) -> dir == NULL)
+                {
+                    (*raiz) = (*raiz) -> esq;
+                }
+            }
+            else
+            {
+                (*raiz) -> chave = mydel(&((*raiz) -> esq));
+            }
+        }
+        else if (n < (*raiz) -> chave)
+        {
+            remove(n, &(*raiz) -> esq);
+            else remove (n,&((*raiz) -> dir));
     }
 
 }
