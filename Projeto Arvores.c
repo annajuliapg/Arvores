@@ -29,19 +29,28 @@ void largura (no ** raiz);
 
 int totalNos (no *raiz, int quant);
 int totalFolhas (no *raiz, int quant);
+int totalUmFilho (no *raiz, int quant);
+int totalDoisFilhos (no *raiz, int quant);
+
+int alturaArvore (no *raiz);
+
+int mediaValores (no *raiz, int soma);
+
+int menorValor (no *raiz);
+int maiorValor (no *raiz);
 
 
 int main ()
 {
     setlocale(LC_ALL, "portuguese");
 
-    int menu, num, quantidade = 0;
+    int menu, num, quantidade, altura, soma, div;
+    float media;
 
     no *raiz = NULL;
     no *inicio;
 
-    int h; /* Flag para verificar se a altura da árvore foi alterada */
-
+    int flagAltura; //Flag para verificar se a altura da árvore foi alterada na hora da inserção
 
     do
     {
@@ -81,8 +90,8 @@ int main ()
             system("cls");
             printf("\n\tDigite o número que deseja inserir: ");
             scanf("%d",&num);
-            h=0;
-            insere(&raiz, num,&h);
+            flagAltura=0;
+            insere(&raiz, num, &flagAltura);
             printf("\n\n\tNúmero inserido!");
             printf("\n\n\n\t");
             system("PAUSE");
@@ -151,6 +160,68 @@ int main ()
             quantidade = 0;
             printf("\n\n\tTotal de folhas: %d", totalFolhas(raiz, quantidade));
 
+            quantidade = 0;
+            printf("\n\n\tTotal de nós com um filho: %d", totalUmFilho(raiz, quantidade));
+
+            quantidade = 0;
+            printf("\n\n\tTotal de nós com dois filhos: %d", totalDoisFilhos(raiz, quantidade));
+
+            printf("\n\n\n\t");
+            system("PAUSE");
+            break;
+
+            case 6:
+            system("cls");
+
+            altura = alturaArvore(raiz);
+
+            if(altura == -1)
+                printf("\n\tÁrvore Vazia");
+            else
+                printf("\n\tAltura da árvore: %d", altura);
+
+            printf("\n\n\n\t");
+            system("PAUSE");
+            break;
+
+            case 7:
+            system("cls");
+
+            soma = 0;
+            soma = mediaValores(raiz, soma);
+
+            if(soma == -1)
+                printf("\n\tÁrvore Vazia");
+            else
+            {
+                quantidade = 0;
+                div = totalNos(raiz, quantidade);
+                media = soma / div;
+
+                printf("\n\tSoma dos valores: %d", soma);
+                printf("\n\n\tTotal de nós: %d", div);
+                printf("\n\n\tMédia dos valores: %.2f", media);
+            }
+
+            printf("\n\n\n\t");
+            system("PAUSE");
+            break;
+
+            case 8:
+            system("cls");
+
+            printf("\n\n\tMenor valor: %d", menorValor(raiz));
+
+            printf("\n\n\n\t");
+            system("PAUSE");
+            break;
+
+
+            case 9:
+            system("cls");
+
+            printf("\n\n\tMaior valor: %d", maiorValor(raiz));
+
             printf("\n\n\n\t");
             system("PAUSE");
             break;
@@ -160,18 +231,18 @@ int main ()
 
             printf("\n\tDigite o número que deseja inserir: ");
             scanf("%d",&num);
-            h=0;
-            insere(&raiz, num, &h);
+            flagAltura=0;
+            insere(&raiz, num, &flagAltura);
 
             printf("\n\tDigite o número que deseja inserir: ");
             scanf("%d",&num);
-            h=0;
-            insere(&raiz, num, &h);
+            flagAltura=0;
+            insere(&raiz, num, &flagAltura);
 
             printf("\n\tDigite o número que deseja inserir: ");
             scanf("%d",&num);
-            h=0;
-            insere(&raiz, num, &h);
+            flagAltura=0;
+            insere(&raiz, num, &flagAltura);
 
             printf("\n\n\tNúmeros inseridos!");
             printf("\n\n\n\t");
@@ -196,14 +267,14 @@ int main ()
     return 0;
 }
 
-void insere(no **raiz, int n, int *h)
+void insere(no **raiz, int n, int *flagAltura)
 {
     struct no *p1, *p2;
 
     if (*raiz == NULL)
     {
         *raiz = (struct no *) malloc(sizeof(struct no));
-        *h=1;
+        *flagAltura=1;
         (*raiz) -> chave = n;
         (*raiz) -> esq = (*raiz) -> dir = NULL;
         (*raiz) -> bal=C;
@@ -212,15 +283,15 @@ void insere(no **raiz, int n, int *h)
     {
        if (n < (*raiz)->chave)
        {
-            insere (&(*raiz)->esq,n,h);
+            insere (&(*raiz)->esq,n,flagAltura);
 
-            if (*h)
+            if (*flagAltura)
             {
                 switch ((*raiz)->bal)
                 {
                    case D:
                    (*raiz)->bal = C;
-                    *h=0;
+                    *flagAltura=0;
                     break;
 
                     case C:
@@ -254,7 +325,7 @@ void insere(no **raiz, int n, int *h)
 
                     }
                     (*raiz)->bal = C;
-                    *h=0;
+                    *flagAltura=0;
                     break;
                 }
             }
@@ -263,15 +334,15 @@ void insere(no **raiz, int n, int *h)
         {
             if (n > (*raiz)->chave)
             {
-                insere (&(*raiz)->dir,n,h);
+                insere (&(*raiz)->dir,n,flagAltura);
 
-                if (*h)
+                if (*flagAltura)
                 {
                     switch ((*raiz)->bal)
                     {
                         case E:
                         (*raiz)->bal = C;
-                        *h=0;
+                        *flagAltura=0;
                         break;
 
                         case C:
@@ -306,7 +377,7 @@ void insere(no **raiz, int n, int *h)
                         }
 
                         (*raiz)->bal = C;
-                        *h=0;
+                        *flagAltura=0;
                         break;
                     }
                 }
@@ -505,12 +576,92 @@ int totalFolhas (no *raiz, int quant)
 
 }
 
+int totalUmFilho (no *raiz, int quant)
+{
+    if (((raiz->dir) && (raiz->esq == NULL)) || ((raiz->dir == NULL) && (raiz->esq)))
+        quant++;
 
+    if (raiz->esq != NULL)
+        quant = totalUmFilho(raiz->esq, quant);
 
+    if (raiz->dir != NULL)
+        quant = totalUmFilho(raiz->dir, quant);
 
+    return quant;
+}
 
+int totalDoisFilhos (no *raiz, int quant)
+{
+    if ((raiz->dir) && (raiz->esq))
+        quant++;
 
+    if (raiz->esq != NULL)
+        quant = totalUmFilho(raiz->esq, quant);
 
+    if (raiz->dir != NULL)
+        quant = totalUmFilho(raiz->dir, quant);
+
+    return quant;
+}
+
+int alturaArvore (no *raiz)
+{
+    if (raiz == NULL)
+      return -1; // altura da árvore vazia
+    else
+    {
+        int he = alturaArvore (raiz->esq);
+
+        int hd = alturaArvore (raiz->dir);
+
+        if (he < hd)
+            return hd + 1;
+        else
+            return he + 1;
+    }
+}
+
+int mediaValores (no *raiz, int soma)
+{
+    if (raiz == NULL)
+      return -1; // altura da árvore vazia
+
+    else
+    {
+        soma = soma + (raiz->chave);
+
+        if (raiz->esq != NULL)
+            soma = mediaValores(raiz->esq, soma);
+
+        if (raiz->dir != NULL)
+            soma = mediaValores(raiz->dir, soma);
+
+    }
+
+    return soma;
+}
+
+int menorValor (no *raiz)
+{
+    if (raiz == NULL)
+        return (-1);
+
+    if (raiz->esq == NULL)
+        return raiz->chave;
+
+    menorValor(raiz->esq);
+}
+
+int maiorValor (no *raiz)
+{
+    if (raiz == NULL)
+        return (-1);
+
+    if (raiz->dir == NULL)
+        return raiz->chave;
+
+    maiorValor(raiz->dir);
+}
 
 
 
