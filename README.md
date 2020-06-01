@@ -26,4 +26,4 @@ As funções a serem implementadas são:
 12. Verificação se duas árvores são simétricas (uma é a imagem da outra refletida em um espelho)
 13. Verificação se um elemento de valor x está em alguma ou nas duas árvores
 14. Verificação de quais valores estão em ambas as árvores (equivalente à intersecção de conjuntos)
-15.Verificação de todos os elementos que estão em pelo menos uma das árvores (equivalente à união de conjuntos)
+15. Verificação de todos os elementos que estão em pelo menos uma das árvores (equivalente à união de conjuntos)
