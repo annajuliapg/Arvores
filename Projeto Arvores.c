@@ -39,6 +39,9 @@ int mediaValores (no *raiz, int soma);
 int menorValor (no *raiz);
 int maiorValor (no *raiz);
 
+int iguais (no *raiz1, no *raiz2);
+int similares (no *raiz1, no *raiz2);
+
 int main ()
 {
     setlocale(LC_ALL, "portuguese");
@@ -65,14 +68,14 @@ int main ()
         printf("\n\t1.Acessar funções da Árvore 1");
         printf("\n\n\t2.Acessar funções da Árvore 2");
 
-        printf("\n\n\t3.Verificação se as duas árvores são iguais (mesma estrutura e mesmos valores nas mesmas posições)");
+        printf("\n\n\n\t3.Verificação se as duas árvores são iguais (mesma estrutura e mesmos valores nas mesmas posições)");
         printf("\n\n\t4.Verificação se duas árvores são semelhantes (mesma estrutura, independentemente dos valores dos nós)");
         printf("\n\n\t5.Verificação se duas árvores são simétricas (uma é a imagem da outra refletida em um espelho)");
         printf("\n\n\t6.Verificação se um elemento de valor x está em alguma ou nas duas árvores");
         printf("\n\n\t7.Verificação de quais valores estão em ambas as árvores (equivalente à intersecção de conjuntos)");
         printf("\n\n\t8.Verificação de todos os elementos que estão em pelo menos uma das árvores (equivalente à união de conjuntos)");
 
-        printf("\n\n\t0.Sair\n");
+        printf("\n\n\n\t0.Sair\n");
 
         printf("\n\n\tDigite a opcão: ");
         scanf("%d",&menuArvores);
@@ -101,7 +104,7 @@ int main ()
 
                 printf("\n\n\t10.(ATALHO)Insere 3 números");
 
-                printf("\n\n\t0.Voltar\n");
+                printf("\n\n\n\t0.Voltar\n");
 
                 printf("\n\n\tDigite a opcão: ");
                 scanf("%d",&menuFunc);
@@ -307,7 +310,7 @@ int main ()
 
                 printf("\n\n\t10.(ATALHO)Insere 3 números");
 
-                printf("\n\n\t0.Voltar\n");
+                printf("\n\n\n\t0.Voltar\n");
 
                 printf("\n\n\tDigite a opcão: ");
                 scanf("%d",&menuFunc);
@@ -489,6 +492,30 @@ int main ()
 
             }while(menuFunc!=0);
 
+            break;
+
+            case 3:
+            system("cls");
+
+            if (iguais(raiz1, raiz2) == 1)
+                printf("\n\n\tAs árvores 1 e 2 são iguais!");
+            else
+                printf("\n\n\tAs árvores 1 e 2 NÃO são iguais!");
+
+            printf("\n\n\n\t");
+            system("PAUSE");
+            break;
+
+            case 4:
+            system("cls");
+
+            if (similares(raiz1, raiz2) == 1)
+                printf("\n\n\tAs árvores 1 e 2 são similares!");
+            else
+                printf("\n\n\tAs árvores 1 e 2 NÃO são similares!");
+
+            printf("\n\n\n\t");
+            system("PAUSE");
             break;
 
             case 0:
@@ -906,5 +933,29 @@ int maiorValor (no *raiz)
     maiorValor(raiz->dir);
 }
 
+int iguais (no *raiz1, no *raiz2)
+{
+    if((!raiz1) && (!raiz2))
+        return(1);
+
+    if ((!raiz1) || (!raiz2))
+        return(0);
+
+    if (raiz1->chave == raiz2->chave)
+        return(iguais (raiz1->dir, raiz2->dir) && iguais (raiz1->esq, raiz2->esq));
+
+    return (0);
+}
+
+int similares(no *raiz1, no *raiz2)
+{
+	if((!raiz1) && (!raiz2))
+		return 1;
+
+	if ((!raiz1) || (!raiz2))
+		return 0;
+
+	return (similares (raiz1->dir, raiz2->dir) && similares (raiz1->esq, raiz2->esq));
+}
 
 
