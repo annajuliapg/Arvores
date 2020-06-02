@@ -40,7 +40,8 @@ int menorValor (no *raiz);
 int maiorValor (no *raiz);
 
 int iguais (no *raiz1, no *raiz2);
-int similares (no *raiz1, no *raiz2);
+int semelhante (no *raiz1, no *raiz2);
+int simetrica (no *raiz1, no *raiz2);
 
 int main ()
 {
@@ -124,6 +125,7 @@ int main ()
 
                     case 2:
                     system("cls");
+
                     if (raiz1)
                     {
                         printf("\n\tDigite o número que deseja remover: ");
@@ -142,6 +144,7 @@ int main ()
 
                     case 3:
                     system("cls");
+
                     if (raiz1)
                     {
                         printf("\n\n\tEm Ordem: ");
@@ -162,6 +165,7 @@ int main ()
 
                     case 4:
                     system("cls");
+
                     if (raiz1)
                     {
                         printf("\n\n\tPercuso em Largura: ");
@@ -179,17 +183,26 @@ int main ()
 
                     case 5:
                     system("cls");
-                    quantidade = 0;
-                    printf("\n\tTotal de nós: %d", totalNos(raiz1, quantidade));
 
-                    quantidade = 0;
-                    printf("\n\n\tTotal de folhas: %d", totalFolhas(raiz1, quantidade));
+                    if (raiz1)
+                    {
+                        quantidade = 0;
+                        printf("\n\tTotal de nós: %d", totalNos(raiz1, quantidade));
 
-                    quantidade = 0;
-                    printf("\n\n\tTotal de nós com um filho: %d", totalUmFilho(raiz1, quantidade));
+                        quantidade = 0;
+                        printf("\n\n\tTotal de folhas: %d", totalFolhas(raiz1, quantidade));
 
-                    quantidade = 0;
-                    printf("\n\n\tTotal de nós com dois filhos: %d", totalDoisFilhos(raiz1, quantidade));
+                        quantidade = 0;
+                        printf("\n\n\tTotal de nós com um filho: %d", totalUmFilho(raiz1, quantidade));
+
+                        quantidade = 0;
+                        printf("\n\n\tTotal de nós com dois filhos: %d", totalDoisFilhos(raiz1, quantidade));
+                    }
+                    else
+                    {
+                        printf("\n\tÁrvore vazia!");
+                    }
+
 
                     printf("\n\n\n\t");
                     system("PAUSE");
@@ -201,7 +214,7 @@ int main ()
                     altura = alturaArvore(raiz1);
 
                     if(altura == -1)
-                        printf("\n\tÁrvore Vazia");
+                        printf("\n\tÁrvore Vazia!");
                     else
                         printf("\n\tAltura da árvore: %d", altura);
 
@@ -216,7 +229,7 @@ int main ()
                     soma = mediaValores(raiz1, soma);
 
                     if(soma == -1)
-                        printf("\n\tÁrvore Vazia");
+                        printf("\n\tÁrvore Vazia!");
                     else
                     {
                         quantidade = 0;
@@ -235,7 +248,14 @@ int main ()
                     case 8:
                     system("cls");
 
-                    printf("\n\n\tMenor valor: %d", menorValor(raiz1));
+                    if (raiz1)
+                    {
+                        printf("\n\n\tMenor valor: %d", menorValor(raiz1));
+                    }
+                    else
+                    {
+                        printf("\n\tÁrvore vazia!");
+                    }
 
                     printf("\n\n\n\t");
                     system("PAUSE");
@@ -245,7 +265,14 @@ int main ()
                     case 9:
                     system("cls");
 
-                    printf("\n\n\tMaior valor: %d", maiorValor(raiz1));
+                    if (raiz1)
+                    {
+                        printf("\n\n\tMenor valor: %d", maiorValor(raiz1));
+                    }
+                    else
+                    {
+                        printf("\n\tÁrvore vazia!");
+                    }
 
                     printf("\n\n\n\t");
                     system("PAUSE");
@@ -330,6 +357,7 @@ int main ()
 
                     case 2:
                     system("cls");
+
                     if (raiz2)
                     {
                         printf("\n\tDigite o número que deseja remover: ");
@@ -348,6 +376,7 @@ int main ()
 
                     case 3:
                     system("cls");
+
                     if (raiz2)
                     {
                         printf("\n\n\tEm Ordem: ");
@@ -368,6 +397,7 @@ int main ()
 
                     case 4:
                     system("cls");
+
                     if (raiz2)
                     {
                         printf("\n\n\tPercuso em Largura: ");
@@ -385,17 +415,26 @@ int main ()
 
                     case 5:
                     system("cls");
-                    quantidade = 0;
-                    printf("\n\tTotal de nós: %d", totalNos(raiz2, quantidade));
 
-                    quantidade = 0;
-                    printf("\n\n\tTotal de folhas: %d", totalFolhas(raiz2, quantidade));
+                    if (raiz2)
+                    {
+                        quantidade = 0;
+                        printf("\n\tTotal de nós: %d", totalNos(raiz2, quantidade));
 
-                    quantidade = 0;
-                    printf("\n\n\tTotal de nós com um filho: %d", totalUmFilho(raiz2, quantidade));
+                        quantidade = 0;
+                        printf("\n\n\tTotal de folhas: %d", totalFolhas(raiz2, quantidade));
 
-                    quantidade = 0;
-                    printf("\n\n\tTotal de nós com dois filhos: %d", totalDoisFilhos(raiz2, quantidade));
+                        quantidade = 0;
+                        printf("\n\n\tTotal de nós com um filho: %d", totalUmFilho(raiz2, quantidade));
+
+                        quantidade = 0;
+                        printf("\n\n\tTotal de nós com dois filhos: %d", totalDoisFilhos(raiz2, quantidade));
+                    }
+                    else
+                    {
+                        printf("\n\tÁrvore vazia!");
+                    }
+
 
                     printf("\n\n\n\t");
                     system("PAUSE");
@@ -407,7 +446,7 @@ int main ()
                     altura = alturaArvore(raiz2);
 
                     if(altura == -1)
-                        printf("\n\tÁrvore Vazia");
+                        printf("\n\tÁrvore Vazia!");
                     else
                         printf("\n\tAltura da árvore: %d", altura);
 
@@ -422,7 +461,7 @@ int main ()
                     soma = mediaValores(raiz2, soma);
 
                     if(soma == -1)
-                        printf("\n\tÁrvore Vazia");
+                        printf("\n\tÁrvore Vazia!");
                     else
                     {
                         quantidade = 0;
@@ -441,7 +480,14 @@ int main ()
                     case 8:
                     system("cls");
 
-                    printf("\n\n\tMenor valor: %d", menorValor(raiz2));
+                    if (raiz2)
+                    {
+                        printf("\n\n\tMenor valor: %d", menorValor(raiz2));
+                    }
+                    else
+                    {
+                        printf("\n\tÁrvore vazia!");
+                    }
 
                     printf("\n\n\n\t");
                     system("PAUSE");
@@ -451,7 +497,14 @@ int main ()
                     case 9:
                     system("cls");
 
-                    printf("\n\n\tMaior valor: %d", maiorValor(raiz2));
+                    if (raiz2)
+                    {
+                        printf("\n\n\tMenor valor: %d", maiorValor(raiz2));
+                    }
+                    else
+                    {
+                        printf("\n\tÁrvore vazia!");
+                    }
 
                     printf("\n\n\n\t");
                     system("PAUSE");
@@ -497,10 +550,15 @@ int main ()
             case 3:
             system("cls");
 
-            if (iguais(raiz1, raiz2) == 1)
-                printf("\n\n\tAs árvores 1 e 2 são iguais!");
+            if((!raiz1) || (!raiz2))
+                printf("\n\n\tPelo menos uma das árvores está vazia, não há como comparar.");
             else
-                printf("\n\n\tAs árvores 1 e 2 NÃO são iguais!");
+            {
+                if (iguais(raiz1, raiz2) == 1)
+                    printf("\n\n\tAs árvores 1 e 2 são iguais!");
+                else
+                    printf("\n\n\tAs árvores 1 e 2 NÃO são iguais!");
+            }
 
             printf("\n\n\n\t");
             system("PAUSE");
@@ -509,10 +567,52 @@ int main ()
             case 4:
             system("cls");
 
-            if (similares(raiz1, raiz2) == 1)
-                printf("\n\n\tAs árvores 1 e 2 são similares!");
+            if((!raiz1) || (!raiz2))
+                printf("\n\n\tPelo menos uma das árvores está vazia, não há como comparar.");
             else
-                printf("\n\n\tAs árvores 1 e 2 NÃO são similares!");
+            {
+                if (semelhante(raiz1, raiz2) == 1)
+                    printf("\n\n\tAs árvores 1 e 2 são similares!");
+                else
+                    printf("\n\n\tAs árvores 1 e 2 NÃO são similares!");
+            }
+
+            printf("\n\n\n\t");
+            system("PAUSE");
+            break;
+
+            case 5:
+            system("cls");
+
+            if((!raiz1) || (!raiz2))
+                printf("\n\n\tPelo menos uma das árvores está vazia, não há como comparar.");
+            else
+            {
+                if (simetrica(raiz1, raiz2) == 1)
+                    printf("\n\n\tAs árvores 1 e 2 são simétricas!");
+                else
+                    printf("\n\n\tAs árvores 1 e 2 NÃO são simétricas!");
+            }
+
+            printf("\n\n\n\t");
+            system("PAUSE");
+            break;
+
+            case 6:
+
+            if(!raiz1)
+               printf("\n\n\tÁrvore 1 vazia!");
+            else
+            {
+                //busca 1
+            }
+
+            if(!raiz2)
+                printf("\n\n\tÁrvore 2 vazia!");
+            else
+            {
+                //busca 2
+            }
 
             printf("\n\n\n\t");
             system("PAUSE");
@@ -947,7 +1047,7 @@ int iguais (no *raiz1, no *raiz2)
     return (0);
 }
 
-int similares(no *raiz1, no *raiz2)
+int semelhante (no *raiz1, no *raiz2)
 {
 	if((!raiz1) && (!raiz2))
 		return 1;
@@ -955,7 +1055,34 @@ int similares(no *raiz1, no *raiz2)
 	if ((!raiz1) || (!raiz2))
 		return 0;
 
-	return (similares (raiz1->dir, raiz2->dir) && similares (raiz1->esq, raiz2->esq));
+	return (semelhante (raiz1->dir, raiz2->dir) && semelhante (raiz1->esq, raiz2->esq));
 }
+
+int simetrica (no *raiz1, no *raiz2)
+{
+    if((!raiz1) && (!raiz2))
+        return(1);
+
+    if((!raiz1) || (!raiz2))
+        return(0);
+
+    if((raiz1 != NULL) && (raiz2 != NULL))
+        return(simetrica (raiz1->esq, raiz2->dir) && simetrica (raiz1->dir, raiz2->esq));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
