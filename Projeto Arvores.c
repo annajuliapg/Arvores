@@ -43,13 +43,19 @@ int iguais (no *raiz1, no *raiz2);
 int semelhante (no *raiz1, no *raiz2);
 int simetrica (no *raiz1, no *raiz2);
 
+int busca (no *raiz, int n);
+
+int *vetor(no *raiz, int v[], int *i);
+
+void comparaVetor (int v1[], int tam1, int v2[], int tam2);
+
 int main ()
 {
     setlocale(LC_ALL, "portuguese");
 
     int menuArvores, menuFunc;
 
-    int num, quantidade, altura, soma, div;
+    int num, quantidade, altura, soma, div, i;
     float media;
 
     int flagAltura; //Flag para verificar se a altura da árvore foi alterada na hora da inserção
@@ -599,19 +605,89 @@ int main ()
             break;
 
             case 6:
+            system("cls");
+            printf("\n\tDigite o número que deseja buscar: ");
+            scanf("%d",&num);
+
 
             if(!raiz1)
                printf("\n\n\tÁrvore 1 vazia!");
             else
             {
-                //busca 1
+                if(busca(raiz1, num) == 1)
+                    printf("\n\n\tNúmero encontrado na Árvore 1!");
+                else
+                    printf("\n\n\tNúmero NÃO encontrado na Árvore 1.");
             }
 
             if(!raiz2)
                 printf("\n\n\tÁrvore 2 vazia!");
             else
             {
-                //busca 2
+                if(busca(raiz2, num) == 1)
+                    printf("\n\n\tNúmero encontrado na Árvore 2!");
+                else
+                    printf("\n\n\tNúmero NÃO encontrado na Árvore 2.");
+            }
+
+            printf("\n\n\n\t");
+            system("PAUSE");
+            break;
+
+            case 7:
+            system("cls");
+
+            if((!raiz1) || (!raiz2))
+                printf("\n\n\tPelo menos uma das árvores está vazia, não há como comparar.");
+            else
+            {
+                quantidade = 0;
+                int tam1 = totalNos(raiz1, quantidade);
+
+                quantidade = 0;
+                int tam2 = totalNos(raiz2, quantidade);
+
+                int v1[tam1], v2[tam2];
+
+                i = 0;
+                vetor(raiz1, v1, &i);
+                i = 0;
+                vetor(raiz2, v2, &i);
+
+                printf("\n\tIntersecção (valores em ambas as árvores): ");
+
+                comparaVetor(v1, tam1, v2, tam2);
+
+            }
+
+            printf("\n\n\n\t");
+            system("PAUSE");
+            break;
+
+            case 8:
+            system("cls");
+
+            if((!raiz1) || (!raiz2))
+                printf("\n\n\tPelo menos uma das árvores está vazia, não há como comparar.");
+            else
+            {
+                quantidade = 0;
+                int tam1 = totalNos(raiz1, quantidade);
+
+                quantidade = 0;
+                int tam2 = totalNos(raiz2, quantidade);
+
+                int v1[tam1], v2[tam2];
+
+                i = 0;
+                vetor(raiz1, v1, &i);
+                i = 0;
+                vetor(raiz2, v2, &i);
+
+                printf("\n\tUnião dos conjuntos: ");
+
+                //chamar função união
+
             }
 
             printf("\n\n\n\t");
@@ -839,7 +915,6 @@ void posOrdem (no **raiz)
         printf("%d ", (*raiz)->chave);
     }
 }
-
 
 // PARA FAZER O PERCURSO EM LARGURA
 
@@ -1070,11 +1145,48 @@ int simetrica (no *raiz1, no *raiz2)
         return(simetrica (raiz1->esq, raiz2->dir) && simetrica (raiz1->dir, raiz2->esq));
 }
 
+int busca (no *raiz, int n)
+{
+    if(!raiz)
+		return 0;
+
+	if(raiz->chave == n)
+        return 1;
+
+	if(n > raiz->chave)
+		return (busca (raiz->dir, n));
+	else
+		return (busca (raiz->esq, n));
+}
 
 
+// guardar valores de cada arvore em um vetor
+int *vetor(no *raiz, int v[], int *i)
+{
+	if(raiz)
+    {
+        v = vetor(raiz->esq, v, i);
 
+        v[*i] = raiz->chave;
+        (*i)++;
 
+        v = vetor(raiz->dir, v, i);
+    }
 
+    return v;
+}
+
+void comparaVetor (int v1[], int tam1, int v2[], int tam2)
+{
+	for (int i=0; i<tam1; i++)
+	{
+		for (int j=0; j<tam2; j++)
+		{
+			if(v1[i] == v2[j])
+				printf(" %d ", v1[i]);
+		}
+	}
+}
 
 
 
