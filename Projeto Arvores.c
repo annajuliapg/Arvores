@@ -49,6 +49,8 @@ int *vetor(no *raiz, int v[], int *i);
 
 void comparaVetor (int v1[], int tam1, int v2[], int tam2);
 
+void uniao (int v1[], int tam1, int v2[], int tam2);
+
 int main ()
 {
     setlocale(LC_ALL, "portuguese");
@@ -686,7 +688,7 @@ int main ()
 
                 printf("\n\tUnião dos conjuntos: ");
 
-                //chamar função união
+                uniao(v1, tam1, v2, tam2);
 
             }
 
@@ -1159,7 +1161,6 @@ int busca (no *raiz, int n)
 		return (busca (raiz->esq, n));
 }
 
-
 // guardar valores de cada arvore em um vetor
 int *vetor(no *raiz, int v[], int *i)
 {
@@ -1188,7 +1189,44 @@ void comparaVetor (int v1[], int tam1, int v2[], int tam2)
 	}
 }
 
+void uniao (int v1[], int tam1, int v2[], int tam2)
+{
+	int i = 0, j = 0;
 
+	// se qualquer um dos vetores acabar, ele sai do loop
+	while((i < tam1) || (j < tam2))
+	{
+		if(v1[i] == v2[j])
+		{
+		    printf("%d ", v1[i]);
+			i++;
+			j++;
+		}
+		else
+		{
+			if(v1[i] < v2[j])
+			{
+				printf("%d ", v1[i]);
+				i++;
+			}
+			else
+			{
+				printf("%d ", v2[j]);
+				j++;
+			}
+		}
+	}
+
+	// termina de printar caso o v1 não tenha terminado
+	if(i < tam1)
+		for(int k = i; k < tam1; k++)
+			printf("%d ", v1[k]);
+
+	// termina de printar caso o v2 não tenha terminado
+	if(j < tam2)
+		for(int k = j; k < tam2; k++)
+			printf("%d ", v2[k]);
+}
 
 
 
