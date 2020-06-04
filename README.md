@@ -23,7 +23,7 @@ As funções a serem implementadas são:
 9. Maior valor armazenado    **OK**
 10. Verificação se as duas árvores são iguais (mesma estrutura e mesmos valores nas mesmas posições)   **OK**
 11. Verificação se duas árvores são semelhantes (mesma estrutura, independentemente dos valores dos nós)   **OK**
-12. Verificação se duas árvores são simétricas (uma é a imagem da outra refletida em um espelho)
-13. Verificação se um elemento de valor x está em alguma ou nas duas árvores
-14. Verificação de quais valores estão em ambas as árvores (equivalente à intersecção de conjuntos)
-15. Verificação de todos os elementos que estão em pelo menos uma das árvores (equivalente à união de conjuntos)
+12. Verificação se duas árvores são simétricas (uma é a imagem da outra refletida em um espelho) **OK**
+13. Verificação se um elemento de valor x está em alguma ou nas duas árvores **OK**
+14. Verificação de quais valores estão em ambas as árvores (equivalente à intersecção de conjuntos) **OK**
+15. Verificação de todos os elementos que estão em pelo menos uma das árvores (equivalente à união de conjuntos) **OK**
