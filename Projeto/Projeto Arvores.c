@@ -60,7 +60,7 @@ int main ()
     int num, quantidade, altura, soma, div, i;
     float media;
 
-    int flagAltura; //Flag para verificar se a altura da árvore foi alterada na hora da inserção
+    int flagAltura; //Flag para verificar se a altura da arvore foi alterada na hora da insercao
 
     no *raiz1 = NULL;
     no *raiz2 = NULL;
@@ -69,24 +69,24 @@ int main ()
     {
         system("cls");
         printf("\n\n\t-----------");
-        printf("\n\t| Árvores |");
+        printf("\n\t| Ãrvores |");
         printf("\n\t-----------");
 
         printf("\n\n\tMENU\n\n");
 
-        printf("\n\t1.Acessar funções da Árvore 1");
-        printf("\n\n\t2.Acessar funções da Árvore 2");
+        printf("\n\t1.Acessar funÃ§Ãµes da Ã¡rvore 1");
+        printf("\n\n\t2.Acessar funÃ§Ãµes da Ã¡rvore 2");
 
-        printf("\n\n\n\t3.Verificação se as duas árvores são iguais (mesma estrutura e mesmos valores nas mesmas posições)");
-        printf("\n\n\t4.Verificação se duas árvores são semelhantes (mesma estrutura, independentemente dos valores dos nós)");
-        printf("\n\n\t5.Verificação se duas árvores são simétricas (uma é a imagem da outra refletida em um espelho)");
-        printf("\n\n\t6.Verificação se um elemento de valor x está em alguma ou nas duas árvores");
-        printf("\n\n\t7.Verificação de quais valores estão em ambas as árvores (equivalente à intersecção de conjuntos)");
-        printf("\n\n\t8.Verificação de todos os elementos que estão em pelo menos uma das árvores (equivalente à união de conjuntos)");
+        printf("\n\n\n\t3.VerificaÃ§Ã£o se as duas Ã¡rvores sÃ£o iguais (mesma estrutura e mesmos valores nas mesmas posiÃ§Ãµes)");
+        printf("\n\n\t4.VerificaÃ§Ã£o se duas Ã¡rvores sÃ£o semelhantes (mesma estrutura, independentemente dos valores dos nÃ³s)");
+        printf("\n\n\t5.VerificaÃ§Ã£o se duas Ã¡rvores sÃ£o simÃ©tricas (uma Ã© a imagem da outra refletida em um espelho)");
+        printf("\n\n\t6.VerificaÃ§Ã£o se um elemento de valor x estÃ¡ em alguma ou nas duas Ã¡rvores");
+        printf("\n\n\t7.VerificaÃ§Ã£o de quais valores estÃ£o em ambas as Ã¡rvores (equivalente Ã  intersecÃ§Ã£o de conjuntos)");
+        printf("\n\n\t8.VerificaÃ§Ã£o de todos os elementos que estÃ£o em pelo menos uma das Ã¡rvores (equivalente Ã  uniÃ£o de conjuntos)");
 
         printf("\n\n\n\t0.Sair\n");
 
-        printf("\n\n\tDigite a opcão: ");
+        printf("\n\n\tDigite a opÃ§Ã£o: ");
         scanf("%d",&menuArvores);
 
         switch(menuArvores)
@@ -96,37 +96,37 @@ int main ()
             {
                 system("cls");
                 printf("\n\n\t-----------------------");
-                printf("\n\t| Funções da Árvore 1 |");
+                printf("\n\t| FunÃ§Ãµes da Ã¡rvore 1 |");
                 printf("\n\t-----------------------");
 
                 printf("\n\n\tMENU\n\n");
 
-                printf("\n\t1.Inserção Balanceada");
-                printf("\n\n\t2.Remoção Balanceada");
+                printf("\n\t1.InserÃ§Ã£o Balanceada");
+                printf("\n\n\t2.RemoÃ§Ã£o Balanceada");
                 printf("\n\n\t3.Percursos em profundidade (em ordem, preordem e posordem)");
                 printf("\n\n\t4.Percurso em largura");
-                printf("\n\n\t5.Contagens (número total de nós, nós folha, nós com um filho, enós com dois filhos)");
-                printf("\n\n\t6.Altura da árvore");
-                printf("\n\n\t7.Média dos valores armazenados na árvore");
+                printf("\n\n\t5.Contagens (nÃºmero total de nÃ³s, nÃ³s folha, nÃ³s com um filho, enÃ³s com dois filhos)");
+                printf("\n\n\t6.Altura da Ã¡rvore");
+                printf("\n\n\t7.MÃ©dia dos valores armazenados na Ã¡rvore");
                 printf("\n\n\t8.Menor valor armazenado");
                 printf("\n\n\t9.Maior valor armazenado");
 
-                printf("\n\n\t10.(ATALHO)Insere 3 números");
+                printf("\n\n\t10.(ATALHO)Insere 3 nÃºmeros");
 
                 printf("\n\n\n\t0.Voltar\n");
 
-                printf("\n\n\tDigite a opcão: ");
+                printf("\n\n\tDigite a opÃ§Ã£o: ");
                 scanf("%d",&menuFunc);
 
                 switch (menuFunc)
                 {
                     case 1:
                     system("cls");
-                    printf("\n\tDigite o número que deseja inserir: ");
+                    printf("\n\tDigite o nÃºmero que deseja inserir: ");
                     scanf("%d",&num);
                     flagAltura = 0;
                     insere(&raiz1, num, &flagAltura);
-                    printf("\n\n\tNúmero inserido!");
+                    printf("\n\n\tNÃºmero inserido!");
                     printf("\n\n\n\t");
                     system("PAUSE");
                     break;
@@ -136,14 +136,14 @@ int main ()
 
                     if (raiz1)
                     {
-                        printf("\n\tDigite o número que deseja remover: ");
+                        printf("\n\tDigite o nÃºmero que deseja remover: ");
                         scanf("%d",&num);
                         removeBal(&raiz1, num);
-                        printf("\n\n\tNúmero removido!");
+                        printf("\n\n\tNÃºmero removido!");
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
                     printf("\n\n\n\t");
@@ -164,7 +164,7 @@ int main ()
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
                     printf("\n\n\n\t");
@@ -181,7 +181,7 @@ int main ()
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
                     printf("\n\n\n\t");
@@ -195,20 +195,20 @@ int main ()
                     if (raiz1)
                     {
                         quantidade = 0;
-                        printf("\n\tTotal de nós: %d", totalNos(raiz1, quantidade));
+                        printf("\n\tTotal de nÃ³s: %d", totalNos(raiz1, quantidade));
 
                         quantidade = 0;
                         printf("\n\n\tTotal de folhas: %d", totalFolhas(raiz1, quantidade));
 
                         quantidade = 0;
-                        printf("\n\n\tTotal de nós com um filho: %d", totalUmFilho(raiz1, quantidade));
+                        printf("\n\n\tTotal de nÃ³s com um filho: %d", totalUmFilho(raiz1, quantidade));
 
                         quantidade = 0;
-                        printf("\n\n\tTotal de nós com dois filhos: %d", totalDoisFilhos(raiz1, quantidade));
+                        printf("\n\n\tTotal de nÃ³s com dois filhos: %d", totalDoisFilhos(raiz1, quantidade));
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
 
@@ -222,9 +222,9 @@ int main ()
                     altura = alturaArvore(raiz1);
 
                     if(altura == -1)
-                        printf("\n\tÁrvore Vazia!");
+                        printf("\n\tÃrvore vazia!");
                     else
-                        printf("\n\tAltura da árvore: %d", altura);
+                        printf("\n\tAltura da Ã¡rvore: %d", altura);
 
                     printf("\n\n\n\t");
                     system("PAUSE");
@@ -237,7 +237,7 @@ int main ()
                     soma = mediaValores(raiz1, soma);
 
                     if(soma == -1)
-                        printf("\n\tÁrvore Vazia!");
+                        printf("\n\tÃrvore vazia!");
                     else
                     {
                         quantidade = 0;
@@ -245,8 +245,8 @@ int main ()
                         media = soma / div;
 
                         printf("\n\tSoma dos valores: %d", soma);
-                        printf("\n\n\tTotal de nós: %d", div);
-                        printf("\n\n\tMédia dos valores: %.2f", media);
+                        printf("\n\n\tTotal de nÃ³s: %d", div);
+                        printf("\n\n\tMÃ©dia dos valores: %.2f", media);
                     }
 
                     printf("\n\n\n\t");
@@ -262,7 +262,7 @@ int main ()
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
                     printf("\n\n\n\t");
@@ -279,7 +279,7 @@ int main ()
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
                     printf("\n\n\n\t");
@@ -289,22 +289,22 @@ int main ()
                     case 10:
                     system("cls");
 
-                    printf("\n\tDigite o número que deseja inserir: ");
+                    printf("\n\tDigite o nÃºmero que deseja inserir: ");
                     scanf("%d",&num);
                     flagAltura=0;
                     insere(&raiz1, num, &flagAltura);
 
-                    printf("\n\tDigite o número que deseja inserir: ");
+                    printf("\n\tDigite o nÃºmero que deseja inserir: ");
                     scanf("%d",&num);
                     flagAltura=0;
                     insere(&raiz1, num, &flagAltura);
 
-                    printf("\n\tDigite o número que deseja inserir: ");
+                    printf("\n\tDigite o nÃºmero que deseja inserir: ");
                     scanf("%d",&num);
                     flagAltura=0;
                     insere(&raiz1, num, &flagAltura);
 
-                    printf("\n\n\tNúmeros inseridos!");
+                    printf("\n\n\tNÃºmeros inseridos!");
                     printf("\n\n\n\t");
                     system("PAUSE");
                     break;
@@ -313,7 +313,7 @@ int main ()
                     break;
 
                     default:
-                    printf("\n\n\tNúmero Inválido");
+                    printf("\n\n\tNÃºmero InvÃ¡lido");
                     printf("\n\n\n\t");
                     system("PAUSE");
                     break;
@@ -328,37 +328,37 @@ int main ()
             {
                 system("cls");
                 printf("\n\n\t-----------------------");
-                printf("\n\t| Funções da Árvore 2 |");
+                printf("\n\t| FunÃ§Ãµes da Ã¡rvore 2 |");
                 printf("\n\t-----------------------");
 
                 printf("\n\n\tMENU\n\n");
 
-                printf("\n\t1.Inserção Balanceada");
-                printf("\n\n\t2.Remoção Balanceada");
+                printf("\n\t1.InserÃ§Ã£o Balanceada");
+                printf("\n\n\t2.RemoÃ§Ã£o Balanceada");
                 printf("\n\n\t3.Percursos em profundidade (em ordem, preordem e posordem)");
                 printf("\n\n\t4.Percurso em largura");
-                printf("\n\n\t5.Contagens (número total de nós, nós folha, nós com um filho, enós com dois filhos)");
-                printf("\n\n\t6.Altura da árvore");
-                printf("\n\n\t7.Média dos valores armazenados na árvore");
+                printf("\n\n\t5.Contagens (nÃºmero total de nÃ³s, nÃ³s folha, nÃ³s com um filho, enÃ³s com dois filhos)");
+                printf("\n\n\t6.Altura da Ã¡rvore");
+                printf("\n\n\t7.MÃ©dia dos valores armazenados na Ã¡rvore");
                 printf("\n\n\t8.Menor valor armazenado");
                 printf("\n\n\t9.Maior valor armazenado");
 
-                printf("\n\n\t10.(ATALHO)Insere 3 números");
+                printf("\n\n\t10.(ATALHO)Insere 3 nÃºmeros");
 
                 printf("\n\n\n\t0.Voltar\n");
 
-                printf("\n\n\tDigite a opcão: ");
+                printf("\n\n\tDigite a opÃ§Ã£o: ");
                 scanf("%d",&menuFunc);
 
                 switch (menuFunc)
                 {
                     case 1:
                     system("cls");
-                    printf("\n\tDigite o número que deseja inserir: ");
+                    printf("\n\tDigite o nÃºmero que deseja inserir: ");
                     scanf("%d",&num);
                     flagAltura = 0;
                     insere(&raiz2, num, &flagAltura);
-                    printf("\n\n\tNúmero inserido!");
+                    printf("\n\n\tNÃºmero inserido!");
                     printf("\n\n\n\t");
                     system("PAUSE");
                     break;
@@ -368,14 +368,14 @@ int main ()
 
                     if (raiz2)
                     {
-                        printf("\n\tDigite o número que deseja remover: ");
+                        printf("\n\tDigite o nÃºmero que deseja remover: ");
                         scanf("%d",&num);
                         removeBal(&raiz2, num);
-                        printf("\n\n\tNúmero removido!");
+                        printf("\n\n\tNÃºmero removido!");
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
                     printf("\n\n\n\t");
@@ -396,7 +396,7 @@ int main ()
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
                     printf("\n\n\n\t");
@@ -413,7 +413,7 @@ int main ()
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
                     printf("\n\n\n\t");
@@ -427,20 +427,20 @@ int main ()
                     if (raiz2)
                     {
                         quantidade = 0;
-                        printf("\n\tTotal de nós: %d", totalNos(raiz2, quantidade));
+                        printf("\n\tTotal de nÃ³s: %d", totalNos(raiz2, quantidade));
 
                         quantidade = 0;
                         printf("\n\n\tTotal de folhas: %d", totalFolhas(raiz2, quantidade));
 
                         quantidade = 0;
-                        printf("\n\n\tTotal de nós com um filho: %d", totalUmFilho(raiz2, quantidade));
+                        printf("\n\n\tTotal de nÃ³s com um filho: %d", totalUmFilho(raiz2, quantidade));
 
                         quantidade = 0;
-                        printf("\n\n\tTotal de nós com dois filhos: %d", totalDoisFilhos(raiz2, quantidade));
+                        printf("\n\n\tTotal de nÃ³s com dois filhos: %d", totalDoisFilhos(raiz2, quantidade));
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
 
@@ -454,9 +454,9 @@ int main ()
                     altura = alturaArvore(raiz2);
 
                     if(altura == -1)
-                        printf("\n\tÁrvore Vazia!");
+                        printf("\n\tÃrvore vazia!");
                     else
-                        printf("\n\tAltura da árvore: %d", altura);
+                        printf("\n\tAltura da Ã¡rvore: %d", altura);
 
                     printf("\n\n\n\t");
                     system("PAUSE");
@@ -469,7 +469,7 @@ int main ()
                     soma = mediaValores(raiz2, soma);
 
                     if(soma == -1)
-                        printf("\n\tÁrvore Vazia!");
+                        printf("\n\tÃrvore vazia!");
                     else
                     {
                         quantidade = 0;
@@ -477,8 +477,8 @@ int main ()
                         media = soma / div;
 
                         printf("\n\tSoma dos valores: %d", soma);
-                        printf("\n\n\tTotal de nós: %d", div);
-                        printf("\n\n\tMédia dos valores: %.2f", media);
+                        printf("\n\n\tTotal de nÃ³s: %d", div);
+                        printf("\n\n\tMÃ©dia dos valores: %.2f", media);
                     }
 
                     printf("\n\n\n\t");
@@ -494,7 +494,7 @@ int main ()
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
                     printf("\n\n\n\t");
@@ -511,7 +511,7 @@ int main ()
                     }
                     else
                     {
-                        printf("\n\tÁrvore vazia!");
+                        printf("\n\tÃrvore vazia!");
                     }
 
                     printf("\n\n\n\t");
@@ -521,22 +521,22 @@ int main ()
                     case 10:
                     system("cls");
 
-                    printf("\n\tDigite o número que deseja inserir: ");
+                    printf("\n\tDigite o nÃºmero que deseja inserir: ");
                     scanf("%d",&num);
                     flagAltura=0;
                     insere(&raiz2, num, &flagAltura);
 
-                    printf("\n\tDigite o número que deseja inserir: ");
+                    printf("\n\tDigite o nÃºmero que deseja inserir: ");
                     scanf("%d",&num);
                     flagAltura=0;
                     insere(&raiz2, num, &flagAltura);
 
-                    printf("\n\tDigite o número que deseja inserir: ");
+                    printf("\n\tDigite o nÃºmero que deseja inserir: ");
                     scanf("%d",&num);
                     flagAltura=0;
                     insere(&raiz2, num, &flagAltura);
 
-                    printf("\n\n\tNúmeros inseridos!");
+                    printf("\n\n\tNÃºmeros inseridos!");
                     printf("\n\n\n\t");
                     system("PAUSE");
                     break;
@@ -545,7 +545,7 @@ int main ()
                     break;
 
                     default:
-                    printf("\n\n\tNúmero Inválido");
+                    printf("\n\n\tNÃºmero InvÃ¡lido");
                     printf("\n\n\n\t");
                     system("PAUSE");
                     break;
@@ -559,13 +559,13 @@ int main ()
             system("cls");
 
             if((!raiz1) || (!raiz2))
-                printf("\n\n\tPelo menos uma das árvores está vazia, não há como comparar.");
+                printf("\n\n\tPelo menos uma das Ã¡rvores estÃ¡ vazia, nÃ£o hÃ¡ como comparar.");
             else
             {
                 if (iguais(raiz1, raiz2) == 1)
-                    printf("\n\n\tAs árvores 1 e 2 são iguais!");
+                    printf("\n\n\tAs Ã¡rvores 1 e 2 sÃ£o iguais!");
                 else
-                    printf("\n\n\tAs árvores 1 e 2 NÃO são iguais!");
+                    printf("\n\n\tAs Ã¡rvores 1 e 2 NÃƒO sÃ£o iguais!");
             }
 
             printf("\n\n\n\t");
@@ -576,13 +576,13 @@ int main ()
             system("cls");
 
             if((!raiz1) || (!raiz2))
-                printf("\n\n\tPelo menos uma das árvores está vazia, não há como comparar.");
+                printf("\n\n\tPelo menos uma das Ã¡rvores estÃ¡ vazia, nÃ£o hÃ¡ como comparar.");
             else
             {
                 if (semelhante(raiz1, raiz2) == 1)
-                    printf("\n\n\tAs árvores 1 e 2 são similares!");
+                    printf("\n\n\tAs Ã¡rvores 1 e 2 sÃ£o similares!");
                 else
-                    printf("\n\n\tAs árvores 1 e 2 NÃO são similares!");
+                    printf("\n\n\tAs Ã¡rvores 1 e 2 NÃƒO sÃ£o similares!");
             }
 
             printf("\n\n\n\t");
@@ -593,13 +593,13 @@ int main ()
             system("cls");
 
             if((!raiz1) || (!raiz2))
-                printf("\n\n\tPelo menos uma das árvores está vazia, não há como comparar.");
+                printf("\n\n\tPelo menos uma das Ã¡rvores estÃ¡ vazia, nÃ£o hÃ¡ como comparar.");
             else
             {
                 if (simetrica(raiz1, raiz2) == 1)
-                    printf("\n\n\tAs árvores 1 e 2 são simétricas!");
+                    printf("\n\n\tAs Ã¡rvores 1 e 2 sÃ£o simÃ©tricas!");
                 else
-                    printf("\n\n\tAs árvores 1 e 2 NÃO são simétricas!");
+                    printf("\n\n\tAs Ã¡rvores 1 e 2 NÃƒO sÃ£o simÃ©tricas!");
             }
 
             printf("\n\n\n\t");
@@ -608,28 +608,28 @@ int main ()
 
             case 6:
             system("cls");
-            printf("\n\tDigite o número que deseja buscar: ");
+            printf("\n\tDigite o nÃºmero que deseja buscar: ");
             scanf("%d",&num);
 
 
             if(!raiz1)
-               printf("\n\n\tÁrvore 1 vazia!");
+               printf("\n\n\tÃrvore 1 vazia!");
             else
             {
                 if(busca(raiz1, num) == 1)
-                    printf("\n\n\tNúmero encontrado na Árvore 1!");
+                    printf("\n\n\tNÃºmero encontrado na Ã¡rvore 1!");
                 else
-                    printf("\n\n\tNúmero NÃO encontrado na Árvore 1.");
+                    printf("\n\n\tNÃºmero NÃƒO encontrado na Ã¡rvore 1.");
             }
 
             if(!raiz2)
-                printf("\n\n\tÁrvore 2 vazia!");
+                printf("\n\n\tÃrvore 2 vazia!");
             else
             {
                 if(busca(raiz2, num) == 1)
-                    printf("\n\n\tNúmero encontrado na Árvore 2!");
+                    printf("\n\n\tNÃºmero encontrado na Ã¡rvore 2!");
                 else
-                    printf("\n\n\tNúmero NÃO encontrado na Árvore 2.");
+                    printf("\n\n\tNÃºmero NÃƒO encontrado na Ã¡rvore 2.");
             }
 
             printf("\n\n\n\t");
@@ -640,7 +640,7 @@ int main ()
             system("cls");
 
             if((!raiz1) || (!raiz2))
-                printf("\n\n\tPelo menos uma das árvores está vazia, não há como comparar.");
+                printf("\n\n\tPelo menos uma das Ã¡rvores estÃ¡ vazia, NÃƒO hÃ¡ como comparar.");
             else
             {
                 quantidade = 0;
@@ -656,7 +656,7 @@ int main ()
                 i = 0;
                 vetor(raiz2, v2, &i);
 
-                printf("\n\tIntersecção (valores em ambas as árvores): ");
+                printf("\n\tIntersecÃ§Ã£o (valores em ambas as Ã¡rvores): ");
 
                 comparaVetor(v1, tam1, v2, tam2);
 
@@ -670,7 +670,7 @@ int main ()
             system("cls");
 
             if((!raiz1) || (!raiz2))
-                printf("\n\n\tPelo menos uma das árvores está vazia, não há como comparar.");
+                printf("\n\n\tPelo menos uma das Ã¡rvores estÃ¡ vazia, NÃƒO hÃ¡ como comparar.");
             else
             {
                 quantidade = 0;
@@ -686,7 +686,7 @@ int main ()
                 i = 0;
                 vetor(raiz2, v2, &i);
 
-                printf("\n\tUnião dos conjuntos: ");
+                printf("\n\tUniÃ£o dos conjuntos: ");
 
                 uniao(v1, tam1, v2, tam2);
 
@@ -700,7 +700,7 @@ int main ()
             exit(1);
 
             default:
-            printf("\n\n\tNúmero Inválido");
+            printf("\n\n\tNÃºmero InvÃ¡lido");
             printf("\n\n\n\t");
             system("PAUSE");
             break;
@@ -755,7 +755,7 @@ void insere(no **raiz, int n, int *flagAltura)
                         (*raiz)->bal= C;
                         (*raiz) = p1;
                     }
-                    else //rebalanceamento duplo
+                    else // rebalanceamento duplo
                     {
                         p2 = p1->dir;
                         p1->dir = p2->esq;
@@ -807,7 +807,7 @@ void insere(no **raiz, int n, int *flagAltura)
                             (*raiz)->bal= C;
                             (*raiz) = p1;
                         }
-                        else //rebalanceamento duplo
+                        else // rebalanceamento duplo
                         {
                             p2 = p1->esq;
                             p1->esq = p2->dir;
@@ -1054,7 +1054,7 @@ int totalDoisFilhos (no *raiz, int quant)
 int alturaArvore (no *raiz)
 {
     if (raiz == NULL)
-      return -1; // altura da árvore vazia
+      return -1; // altura da Ã¡rvore vazia
     else
     {
         int he = alturaArvore (raiz->esq);
@@ -1071,7 +1071,7 @@ int alturaArvore (no *raiz)
 int mediaValores (no *raiz, int soma)
 {
     if (raiz == NULL)
-      return -1; // altura da árvore vazia
+      return -1; // altura da Ã¡rvore vazia
 
     else
     {
@@ -1217,22 +1217,13 @@ void uniao (int v1[], int tam1, int v2[], int tam2)
 		}
 	}
 
-	// termina de printar caso o v1 não tenha terminado
+	// termina de printar caso o v1 NÃƒO tenha terminado
 	if(i < tam1)
 		for(int k = i; k < tam1; k++)
 			printf("%d ", v1[k]);
 
-	// termina de printar caso o v2 não tenha terminado
+	// termina de printar caso o v2 NÃƒO tenha terminado
 	if(j < tam2)
 		for(int k = j; k < tam2; k++)
 			printf("%d ", v2[k]);
 }
-
-
-
-
-
-
-
-
-
