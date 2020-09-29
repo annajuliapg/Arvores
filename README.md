@@ -5,10 +5,9 @@ Manipulação de Árvores Binárias AVL
 
 DESCRIÇÃO
 
-As árvores binárias de busca balanceadas (AVL) são uma estrutura de dados muito importante, por serem muito eficientes no armazenamento e recuperação de informações.
 Este projeto consiste em implementar diferentes funções para árvores AVL, acessadas através de um menu de opções. Serão usadas duas árvores diferentes (o usuário deve escolher qual árvore quer acessar).
 
-FUNÇÔES
+FUNÇÕES
 
 As funções a serem implementadas são:
 
